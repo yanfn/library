@@ -3,14 +3,16 @@ const modalContainer = document.getElementById('myModal');
 const newBookBtn = document.getElementById('new-book');
 const closeSpan = document.querySelector('.close');
 const form = document.querySelector('.form-content');
-const addBookBtn = document.getElementById('addBookBtn');
 const closeModal = () => {
     modalContainer.style.display = 'none';
 };
 
 
 // Modal EventListeners
-addBookBtn.addEventListener('click', addBookToLibrary);
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    addBookToLibrary();
+});
 newBookBtn.addEventListener('click', () => modalContainer.style.display = 'block');
 closeSpan.addEventListener('click', closeModal);
 
