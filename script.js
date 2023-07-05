@@ -22,22 +22,23 @@ window.onclick = (e) => (e.target == modalContainer) ? closeModal() : null;
 
 let myLibrary = [];
 
-class Book {
-    constructor(title, author, page, read) {
-        this.title = title
-        this.author = author
-        this.page = page
-        this.read = read
-    }
 
-    bookRead() {
-        this.read = !this.read
+const Book = (title, author, page, read) => {
+    
+    return {
+        title,
+        author,
+        page,
+        read,
+        bookRead() {
+            this.read = !this.read
+        }
     }
 }
 
 
 function addBookToLibrary() {
-    let newBook = new Book(
+    let newBook = Book(
         document.getElementById('book-title').value,
         document.getElementById('book-author').value,
         document.getElementById('book-page').value,
