@@ -22,16 +22,19 @@ window.onclick = (e) => (e.target == modalContainer) ? closeModal() : null;
 
 let myLibrary = [];
 
-function Book(title, author, page, read) {
-    this.title = title
-    this.author = author
-    this.page = page
-    this.read = read
+class Book {
+    constructor(title, author, page, read) {
+        this.title = title
+        this.author = author
+        this.page = page
+        this.read = read
+    }
+
+    bookRead() {
+        this.read = !this.read
+    }
 }
 
-Book.prototype.bookRead = function () {
-    this.read = !this.read
-};
 
 function addBookToLibrary() {
     let newBook = new Book(
